@@ -14,6 +14,11 @@ public class Deck {
 		deck = new LinkedList<Card>();
 		discard = new LinkedList<Card>();
 	}
+
+	public Deck (Deck otherDeck) {
+	    this.deck = otherDeck.deck;
+	    this.discard = otherDeck.discard;
+    }
 	
 	public LinkedList<Card> getDeck(){
 		return this.deck;
