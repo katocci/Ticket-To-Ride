@@ -1,8 +1,7 @@
 package ticketToRide;
 
-import java.util.*;
+import java.util.*; 
 
-import javax.smartcardio.Card;
 
 // This class holds the deck of cards. Will need functionality for the shuffle to pull from
 // discard pile and, in some cases, to know whether or not a shuffle can be performed
@@ -46,19 +45,19 @@ public class Deck {
 	}
 	
 	// draws from discard (Only available for Train Car Cards)
-	public card pull() {
+	public Card pull() {
 		return discard.pop();
 	}
 	
+	// No check to see if I can shuffle here, because it will likely be done outside
+	// during turn conditions to validate play.
 	public void shuffle() {
-		if(canShuffle())
-			Collections.shuffle(deck);
-		// add in some error throwing here or something
-			
+		Collections.shuffle(deck);
 	}
 	
 	// Need at least 2 cards to be able to shuffle
 	// only the deck gets shuffled
+	// this is essentially a size check that the board will perform to figure out logic
 	public boolean canShuffle() {
 		if(this.deck.size() > 1)
 			return true;
