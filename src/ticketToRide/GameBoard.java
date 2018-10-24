@@ -1,7 +1,7 @@
-
 package ticketToRide;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class GameBoard {
 	
@@ -14,5 +14,23 @@ public class GameBoard {
 	// the actual game logic to reference so all of the different objects are in one place
 	
 	// Add constructors and getters/setters, clearly.
+
+
+    ////////////////////////////////////////////
+    // A single route for testing isValidMove //
+
+    private int route; // the size of a single route
+    private String route_color // the color of the route
+
+    public GameBoard(int _route, String _route_color) {
+        this.route = _route;
+        this.route_color = _route_color;
+    }
+
+    public int getRouteSize() { return route; }
+
+    public String getRouteColor{ return route_color; }
+
+    ////////////////////////////////////////////
 
 }
