@@ -1,18 +1,52 @@
 
 package ticketToRide;
 
-import java.util.LinkedList;
+import java.util.*;
+
 
 public class GameBoard {
-	
-	private LinkedList<Card> tcHand;
+    private static Random random = new Random(System.currentTimeMillis());
+    private static String[] color = {"RED", "BLUE", "GREEN", "YELLOW", "BLACK", "BLANK"};
 	private Deck tcDeck;
 	private Deck dcDeck;
-	private LinkedList<Player> players;
-	
-	// Not sure what functionality will be here. In my mind, this is just a reference point for
-	// the actual game logic to reference so all of the different objects are in one place
-	
-	// Add constructors and getters/setters, clearly.
+	private ArrayList<Routes> gameRoutes;
+	private int min = 1;
+	private int max = color.length;
 
+    public GameBoard(){
+
+        gameRoutes = new ArrayList<>();
+        for(int i = 0; i < 5; i++){
+            gameRoutes.add(new Routes());
+        }
+        tcDeck = null;
+        dcDeck = null;
+    }
+
+    public ArrayList<Routes> getGameRoutes() {
+        return gameRoutes;
+    }
+
+    class Routes {
+        private int routeLength;
+        private String routeColor;
+
+        public Routes() {
+            this.routeLength = random.nextInt(max-min) + min;
+            this.routeColor = color[random.nextInt(color.length)];
+        }
+
+        public int getRouteLength() {
+            return routeLength;
+        }
+
+        public String getRouteColor() {
+            return routeColor;
+        }
+
+        @Override
+        public String toString(){
+            return "Length: " + this.routeLength + " " +  "Color: " + this.routeColor;
+        }
+    }
 }
