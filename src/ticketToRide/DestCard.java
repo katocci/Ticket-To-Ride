@@ -31,7 +31,7 @@ public class DestCard implements Card{
 	}
 	
 	public String toString() {
-		return "";
+		return "Destination Card: destination = " + this.dest + " origin = " + this.origin + "value = " + this.value;
 	}
 
 }
