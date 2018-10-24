@@ -19,6 +19,8 @@ public class DeckTest {
 		TrainCarCard card5 = new TrainCarCard("blue");
 		
 		d1 = new Deck();
+    master
+		d2 = new Deck();
 		d2 = new Deck();
 		d3 = new Deck();
 		
@@ -53,12 +55,15 @@ public class DeckTest {
 	public void checkDeck() {
 		assertTrue(d1.getDiscard().size() > 0);
 		assertTrue(d1.getDeck().size() > 0);
+master
 	}
 
 	// Create two Decks with identical deck lists, check that they're equal
 	// shuffle one, then check that they are no longer equal.
 	@Test
 	public void shuffleTest() {
+master
+		assertNotEquals(d1, d2);
 		assertTrue(d1.getDeck().equals(d2.getDeck()));
 		d2.shuffle();
 		assertFalse(d1.getDeck().equals(d2.getDeck()));
@@ -82,6 +87,7 @@ public class DeckTest {
 		Card temp = (TrainCarCard)d1.draw();
 		assertEquals("red", ((TrainCarCard) temp).getColor());
 		assertEquals(4, d1.getDeck().size());
+master
 	}
 	
 	// check values match, then check length

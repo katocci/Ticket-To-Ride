@@ -7,10 +7,10 @@ import org.junit.Test;
 
 public class GameLogicTest {
 	
-	
+	GameLogic glTest;
 	@Before
 	public void setUp() {
-		GameLogic glTest = new GameLogic();
+		glTest = new GameLogic();
 	}
 	
 	@Test
