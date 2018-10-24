@@ -7,13 +7,11 @@ import java.util.*;
 
 public class GameBoard {
     private static Random random = new Random();
-	//private LinkedList<Card> tcHand;
     private static String[] color = {"RED", "BLUE", "GREEN", "YELLOW", "BLACK"};
 	private Deck tcDeck;
 	private Deck dcDeck;
 	private ArrayList<Routes> gameRoutes;
-	//private LinkedList<Player> players;
-	
+
 	// Not sure what functionality will be here. In my mind, this is just a reference point for
 	// the actual game logic to reference so all of the different objects are in one place
 	
