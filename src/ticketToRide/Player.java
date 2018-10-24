@@ -1,5 +1,6 @@
 package ticketToRide;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
@@ -15,15 +16,23 @@ public class Player {
 	public Player() {
 		this.color = "blank";
 		this.score = 0;
-		// don't initialize hands until dealing?
 	}
 	
 	public Player(String color) {
 		this.color = color;
 		this.score = 0;
+        this.tcHand = new ArrayList<>();
 	}
-	
-	// Setters and getters here
+
+    public List<TrainCarCard> getTcHand() {
+        return tcHand;
+    }
+
+    public void add(String color){
+	    TrainCarCard card = new TrainCarCard(color);
+        tcHand.add(card);
+    }
+    // Setters and getters here
 	
 	// Thoughts on any testable methods? I've got nothing currently
 	// will probably have to play around with functionality of the "hands" of cards. 
