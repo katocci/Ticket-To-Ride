@@ -16,6 +16,7 @@ public class Player {
 	public Player() {
 		this.color = "blank";
 		this.score = 0;
+		this.tcHand = new ArrayList<>();
 	}
 	
 	public Player(String color) {
@@ -28,8 +29,8 @@ public class Player {
         return tcHand;
     }
 
-    public void add(String color){
-	    TrainCarCard card = new TrainCarCard(color);
+    public void addCard(String color){
+	    TrainCarCard card = new TrainCarCard();
         tcHand.add(card);
     }
     // Setters and getters here
