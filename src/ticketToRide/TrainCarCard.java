@@ -4,6 +4,10 @@ import java.util.Random;
 
 public class TrainCarCard implements Card{
 
+    /*
+        Added the color and car types for the TrainCar cards.
+        Each card will be randomly generated with a color and car type.
+     */
     private final String[] carTypes = {"Box", "Passenger", "Tanker", "Reefer",
                                         "Freight", "Hopper", "Coal", "Caboose", "Locomotives"};
     private static String[] colors = {"RED", "BLUE", "GREEN", "YELLOW", "BLACK"};

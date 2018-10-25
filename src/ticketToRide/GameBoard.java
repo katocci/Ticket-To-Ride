@@ -5,6 +5,13 @@ import java.util.*;
 
 
 public class GameBoard {
+
+    /*
+        Added color and car types for the routes, along with their designated length since
+        each routes will require a certain number of train cards that of the same type along with a
+        a color.
+        The routes are each randomly generated with a length, car type, and color
+     */
     private Random random = new Random(System.currentTimeMillis());
     private static String[] color = {"RED", "BLUE", "GREEN", "YELLOW", "BLACK", "BLANK"};
     private final String[] carTypes = {"Box", "Passenger", "Tanker", "Reefer",
@@ -29,6 +36,11 @@ public class GameBoard {
         return gameRoutes;
     }
 
+    /*
+        Routes is an inner class of the GameBoard class because the routes are within the game board.
+        We just have an array of Routes that the GameBoard can access. This way we don't have to externally
+        make a Routes class and we can easily modify this inner class in any case that GameBoard or Routes changes.
+     */
     class Routes {
         private int routeLength;
         private String routeColor;
