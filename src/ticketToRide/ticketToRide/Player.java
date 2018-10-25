@@ -1,7 +1,7 @@
 package ticketToRide;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Player {
 	
@@ -16,26 +16,23 @@ public class Player {
 	public Player() {
 		this.color = "blank";
 		this.score = 0;
-		tcHand = new ArrayList<TrainCarCard>();
-		// don't initialize hands until dealing?
 	}
 	
 	public Player(String color) {
 		this.color = color;
 		this.score = 0;
+        this.tcHand = new ArrayList<>();
 	}
 
-	// for testing isValidMove
-	public void add(String color) {
-		TrainCarCard card = new TrainCarCard(color);
-		tcHand.add(card);
-	}
+    public List<TrainCarCard> getTcHand() {
+        return tcHand;
+    }
 
-	public List<TrainCarCard> getTcHand() {
-		return tcHand;
-	}
-
-	// Setters and getters here
+    public void add(String color){
+	    TrainCarCard card = new TrainCarCard(color);
+        tcHand.add(card);
+    }
+    // Setters and getters here
 	
 	// Thoughts on any testable methods? I've got nothing currently
 	// will probably have to play around with functionality of the "hands" of cards. 
