@@ -18,6 +18,6 @@ public class TrainCarCard implements Card{
 	}
 	
 	public String toString() {
-		return "";
+		return "TrainCarCard: " + this.color;
 	}
 }

@@ -1,11 +1,15 @@
 package ticketToRide;
 
-// I just created this to make Deck more generic rather than having multiple deck classes.
+/**
+ * Creates a generic object Card that can be specialized as needed for the Deck class.
+ * 
+ * */
 public interface Card {
 	
-	//public String toString();
-
-	// Joe's TEST commit
-	// Joe's s SECOND TEST commit
+	/** 
+	 * Must override toString method 
+	 * @return formatted String for class data
+	 */
+	public String toString();
 	
 }
