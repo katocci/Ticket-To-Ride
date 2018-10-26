@@ -16,18 +16,23 @@ public class Player {
 	public Player() {
 		this.color = "blank";
 		this.score = 0;
+		this.tcHand = new ArrayList<TrainCarCard>();
 	}
 	
 	public Player(String color) {
 		this.color = color;
 		this.score = 0;
-        this.tcHand = new ArrayList<>();
+		this.tcHand = new ArrayList<TrainCarCard>();
 	}
 
     public List<TrainCarCard> getTcHand() {
         return tcHand;
     }
 
+    public void add(String color) {
+        tcHand.add(new TrainCarCard(color));
+    }
+  
     public void add(String color){
 	    TrainCarCard card = new TrainCarCard(color);
         tcHand.add(card);
