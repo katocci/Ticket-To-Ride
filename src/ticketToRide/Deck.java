@@ -1,6 +1,4 @@
-package ticketToRide;
-
-import java.util.*; 
+import java.util.*;
 
 
 // This class holds the deck of cards. Will need functionality for the shuffle to pull from
