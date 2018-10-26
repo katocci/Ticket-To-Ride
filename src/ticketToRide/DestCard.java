@@ -1,3 +1,5 @@
+package ticketToRide;
+
 public class DestCard implements Card{
 	
 	private final String dest;
