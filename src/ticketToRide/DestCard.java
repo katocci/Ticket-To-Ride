@@ -1,4 +1,3 @@
-package ticketToRide;
 
 public class DestCard implements Card{
 	
