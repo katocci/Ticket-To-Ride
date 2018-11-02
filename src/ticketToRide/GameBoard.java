@@ -46,6 +46,10 @@ public class GameBoard {
         return destinations.get(cities).getRouteLength();
     }
 
+    /*
+        Just a helper function for the getRouteLength().
+        This ensures that the order of the cities being passed doesn't matter
+     */
     private ArrayList getKey(String c1, String c2){
         Set keySet = destinations.keySet();
 
