@@ -15,7 +15,6 @@ public class GameBoard {
     //private ArrayList<Routes> gameRoutes;
     private HashMap<List<String>, Route> destinations;
 
-
     public GameBoard() {
         /*
             Using an array for the keys/destinations since the routes are bi-directional.
@@ -30,16 +29,15 @@ public class GameBoard {
         destinations.put(new ArrayList<>(Arrays.asList("LA", "LV")), new Route("BLANK", 3));
     }
 
-    public int getRouteLength(String city1, String city2) {
+    public Route getRoute(String city1, String city2) {
         ArrayList<String> cities = getKey(city1, city2);
         Route foundRoute;
         if (cities.contains(null) || cities.isEmpty()) {
-            //foundRoute = null;
-            return 0;
-        } //else {
-        //foundRoute = new Route(destinations.get(cities).getRouteColor(), destinations.get(cities).getRouteLength());
-        //}
-        return destinations.get(cities).getRouteLength();
+            foundRoute = null;
+        } else {
+            foundRoute = new Route(destinations.get(cities).getRouteColor(), destinations.get(cities).getRouteLength());
+        }
+        return foundRoute;
     }
 
     /*
