@@ -21,12 +21,18 @@ public class GameBoard {
             It's the same route regardless which end you start in.
          */
         destinations = new HashMap<>();
-        destinations.put(new ArrayList<>(Arrays.asList("LA", "SF")), new Route("RED", 3));
-        destinations.put(new ArrayList<>(Arrays.asList("NY", "SF")), new Route("BLUE", 5));
-        destinations.put(new ArrayList<>(Arrays.asList("LA", "SD")), new Route("BLACK", 2));
-        destinations.put(new ArrayList<>(Arrays.asList("NY", "DC")), new Route("GREEN", 3));
-        destinations.put(new ArrayList<>(Arrays.asList("SF", "LV")), new Route("YELLOW", 4));
-        destinations.put(new ArrayList<>(Arrays.asList("LA", "LV")), new Route("BLANK", 3));
+
+        destinations.put(new ArrayList<>(Arrays.asList("LA", "SF")), new Routes("RED", 3));
+        destinations.put(new ArrayList<>(Arrays.asList("NY", "SF")), new Routes("BLUE", 5));
+        destinations.put(new ArrayList<>(Arrays.asList("LA", "SD")), new Routes("BLACK", 2));
+        destinations.put(new ArrayList<>(Arrays.asList("NY", "DC")), new Routes("GREEN", 3));
+        destinations.put(new ArrayList<>(Arrays.asList("SF", "LV")), new Routes("YELLOW", 4));
+        destinations.put(new ArrayList<>(Arrays.asList("LA", "LV")), new Routes("BLANK", 3));
+
+        // Build decks for game
+        tcDeck = new Deck('trainCarSmall.txt', 0);
+        dcDeck = new Deck('destCardSmall.txt', 1);
+
     }
 
     public Route getRoute(String city1, String city2) {
