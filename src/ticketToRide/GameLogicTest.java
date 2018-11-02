@@ -1,4 +1,3 @@
-package ticketToRide;
 
 import static org.junit.Assert.*;
 

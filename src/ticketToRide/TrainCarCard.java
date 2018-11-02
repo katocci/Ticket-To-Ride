@@ -1,5 +1,4 @@
 
-package ticketToRide;
 
 import java.util.Random;
 

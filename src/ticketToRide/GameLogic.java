@@ -1,4 +1,3 @@
-package ticketToRide;
 import java.util.List;
 
 // Vast majority of functionality is going to go here. All rules for turns and all of game setup
@@ -7,10 +6,12 @@ public class GameLogic {
 	private GameBoard board;
 	
 	public GameLogic() {
-		//this.board = new GameBoard();
+
 	}
 	
-	public void takeTurn() {}
+	public void takeTurn() {
+
+	}
 	
 	public boolean isWinner() {
 		return false;
@@ -26,22 +27,21 @@ public class GameLogic {
 	// isValidMove tests a Player's cards against the board for:
     // 1) The correct color of TrainCarCards for a route
     // 2) The correct amount of TrainCarCards for a route
-	public boolean isValidMove(Player player, GameBoard route) {
-		int route_length = route.getRouteSize();
-		String route_color = route.getRouteColor();
+	public boolean isValidMove(Player player, GameBoard routes, String city1, String city2) {
 
 		int num_of_cards = 0;
+		Route route = routes.getRoute(city1, city2);
 
-		List<TrainCarCard> a = player.getTcHand();
+		List<TrainCarCard> player_hand = player.getTcHand();
 
-		for(int i = 0; i < a.size(); i++) {
-			if(a.get(i).getColor().equals(route_color))
+		for(int i = 0; i < player_hand.size(); i++) {
+			if(player_hand.get(i).getColor().equals(route.getRouteColor()))
 				num_of_cards++;
 		}
 
-		System.out.println("You have " + num_of_cards + " " + route_color + " card(s) for the route.");
+		System.out.println("You have " + num_of_cards + " " + route.getRouteColor() + " card(s) for the route.");
 
-		if(num_of_cards == route_length)
+		if(num_of_cards == route.getRouteLength())
 			return true;
 
 		return false;
