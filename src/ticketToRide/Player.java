@@ -1,4 +1,3 @@
-package ticketToRide;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,10 +32,6 @@ public class Player {
         tcHand.add(new TrainCarCard(color));
     }
   
-    public void add(String color){
-	    TrainCarCard card = new TrainCarCard(color);
-        tcHand.add(card);
-    }
     // Setters and getters here
 	
 	// Thoughts on any testable methods? I've got nothing currently
