@@ -1,4 +1,3 @@
-package ticketToRide;
 
 import java.util.*;
 import java.io.*;
@@ -24,7 +23,7 @@ public class Deck {
 
 	// This constructor takes a filename and flag indicating what kind of Card is filling the deck
 	public Deck(String filename, int flag){
-		deck = new LinkedLIst<Card>();
+		deck = new LinkedList<Card>();
 		discard = new LinkedList<Card>();
 		buildDeck(filename,flag);
 	}
