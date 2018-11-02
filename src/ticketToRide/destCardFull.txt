@@ -1,4 +1,4 @@
-la nyc 21
+la ny 21
 duluth houston 8
 ssm nashville 8
 ny atlanta 6
@@ -7,7 +7,7 @@ vancouver montreal 20
 duluth elpaso 10
 toronto miami 10
 portland phoenix 11
-dallas nyc 11
+dallas ny 11
 calgary saltlakecity 7
 calgary phoenix 13
 la miami 20

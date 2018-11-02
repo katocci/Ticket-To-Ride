@@ -1,3 +1,6 @@
+
+package ticketToRide;
+
 import java.util.Random;
 
 public class TrainCarCard implements Card{
@@ -26,12 +29,13 @@ public class TrainCarCard implements Card{
 		return this.color;
 	}
 
-    public String getCarType () {
-        return carType;
-    }
+	public String getCarType() {
+		return carType;
+	}
 
-    public String toString () {
-        return "TrainCarCard: " + this.color;
-    }
 
+
+	public String toString() {
+		return "TrainCarCard: " + this.color;
+	}
 }
