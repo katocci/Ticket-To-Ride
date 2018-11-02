@@ -1,4 +1,3 @@
-package ticketToRide;
 
 import java.util.*;
 import java.io.*;
