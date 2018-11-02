@@ -33,6 +33,10 @@ public class GameBoard {
         destinations.put(new ArrayList<>(Arrays.asList("NY", "DC")), new Routes("GREEN", 3));
         destinations.put(new ArrayList<>(Arrays.asList("SF", "LV")), new Routes("YELLOW", 4));
         destinations.put(new ArrayList<>(Arrays.asList("LA", "LV")), new Routes("BLANK", 3));
+
+        // Build decks for game
+        tcDeck = new Deck('trainCarSmall.txt', 0);
+        dcDeck = new Deck('destCardSmall.txt', 1);
     }
 
     public int getRouteLength(String city1, String city2) {

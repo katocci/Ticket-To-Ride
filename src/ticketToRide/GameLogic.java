@@ -18,7 +18,9 @@ public class GameLogic {
 	
 	// this will perform all initial dealing of cards to players and set 5 face up
 	// Train Car Cards on board.
-	public void gameSetUp() {}
+	public void gameSetUp() {
+
+	}
 
     ////////////////////////////////////////////
 	// isValidMove tests a Player's cards against the board for:
