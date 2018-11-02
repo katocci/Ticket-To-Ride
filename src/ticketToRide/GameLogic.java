@@ -1,3 +1,4 @@
+package ticketToRide;
 import java.util.List;
 
 // Vast majority of functionality is going to go here. All rules for turns and all of game setup
@@ -32,7 +33,7 @@ public class GameLogic {
 		List<TrainCarCard> a = player.getTcHand();
 
 		for(int i = 0; i < a.size(); i++) {
-			if(a.get(i).getColor() == route_color)
+			if(a.get(i).getColor().equals(route_color))
 				num_of_cards++;
 		}
 

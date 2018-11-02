@@ -1,11 +1,12 @@
-package ticketToRide;
 
-import java.util.*; 
+import java.util.*;
+import java.io.*;
 
-
-// This class holds the deck of cards. Will need functionality for the shuffle to pull from
-// discard pile and, in some cases, to know whether or not a shuffle can be performed
-// Probably want to create a file that builds the deck to avoid tons of setup code.
+/**
+ * This class holds both deck and discard piles of cards. It uses LinkedList functionality to add and
+ * remove cards from the deck or discard. It has a shuffle functionality and can be built using a file. a simple
+ * integer flag denotes what kind of card the Deck will consist of
+ */
 public class Deck {
 	
 	// Each deck consists of a deck and discard pile, although the discard pile is unimplemented for the Destination Cards
@@ -24,7 +25,10 @@ public class Deck {
 	    this.deck = otherDeck.deck;
 	    this.discard = otherDeck.discard;
     }
-	
+    /**
+	 * Get fuction for deck portion of Deck.
+	 * @return list of cards in the deck
+	 */
 	public LinkedList<Card> getDeck(){
 		return this.deck;
 	}
@@ -69,6 +73,33 @@ public class Deck {
 		else
 			return false;
 	}
+	/**
+	 * This method creates a FileReader wrapped in a BufferedReader to automatically build a Deck of cards
+	 * from some file name. This is generalized to avoid hardcoding over 100 cards for the full game.
+	 * param String name of file to be read
+	 * param int num tells what type of card is being built, 0 = TrainCarCard, 1 = DestCard
+	 */
+	public void buildDeck(String fileName, int type) {
+		String s;
 
-		
+		try(BufferedReader br = new BufferedReader(new FileReader(fileName))){
+			while((s = br.readLine()) != null) {
+				if(type == 0) {
+					this.add(new TrainCarCard(s));
+				}
+
+				else{
+					String[] arr = s.split(" ");
+					this.add(new DestCard(arr[0],arr[1], Integer.parseInt(arr[2])));
+				}
+			}
+			this.shuffle(); // initial shuffle
+
+		} catch (IOException exc) {
+			System.out.println("I/O Error: " + exc);
+		}
+	}
+
+
+
 }
