@@ -1,32 +1,92 @@
 import java.util.List;
+import java.util.Scanner;
 
 // Vast majority of functionality is going to go here. All rules for turns and all of game setup
 public class GameLogic {
-	
-	private GameBoard board;
-	
+
+	public final int MAX_SCORE = 15;
+	public final int MIN_CAR_COUNT = 2;
+	public Player player1, player2;
+	public GameBoard board;
+
 	public GameLogic() {
-
+		board = new GameBoard();
+		// For this assignment, we are leaving the max at 2 players
+		player1 = new Player("BLUE");
+		player2 = new Player("RED");
 	}
-	
-	public void takeTurn() {
 
-	}
-	
-	public boolean isWinner() {
+	public boolean gameOver() {
+		if (player1.getScore() == MAX_SCORE || player2.getScore() == MAX_SCORE)
+			return true;
+		else if (player1.getCarCount() <= MIN_CAR_COUNT || player2.getCarCount() <= MIN_CAR_COUNT)
+			return true;
+		else if (player1.getTcHand().isEmpty() || player2.getTcHand().isEmpty())
+			return true;
+
 		return false;
 	}
-	
-	// this will perform all initial dealing of cards to players and set 5 face up
-	// Train Car Cards on board.
-	public void gameSetUp() {
+
+	/*
+	 	playGame goes through the process of playing an entire game
+		 until GameOver() returns false
+	 */
+	public void playGame() {
+		Scanner scanner = new Scanner(System.in);
+
+		/*
+			Note to self: Find way to eliminate repeating code
+		 */
+		while(!gameOver()) {
+
+			// add a function here that displays the routes from GameBoard
+
+			// PLAYER 1
+			System.out.println("----" +  player1.getColor() + "----");
+			System.out.println("Press 1 to Draw 2 Cards");
+			System.out.println("Press 2 to Claim a Route");
+			System.out.println("Press 3 to Draw Destination Cards from the board");
+			int input1 = scanner.nextInt();
+
+			if(input1 == 1) {
+				for(int i = 0; i < 2; i++)
+					player1.addTCCard(board.getTCCard());
+			}
+			else if(input1 == 2) {
+				System.out.println("Which route would you like to take?");
+
+				// add something here that would allow player to input route they want
+			}
+			else if(input1 == 3) { player1.addDCCard(board.getDCCard()); }
+
+
+			// PLAYER 2
+			System.out.println("----" +  player2.getColor() + "----");
+			System.out.println("Press 1 to Draw 2 Cards");
+			System.out.println("Press 2 to Claim a Route");
+			System.out.println("Press 3 to Draw Destination Cards from the board");
+			int input2 = scanner.nextInt();
+
+			if(input2 == 1) {
+				for(int i = 0; i < 2; i++)
+					player1.addTCCard(board.getTCCard());
+			}
+			else if(input2 == 2) {
+				System.out.println("Which route would you like to take?");
+
+				// add something here that would allow player to input route they want
+
+			}
+			else if(input2 == 3) { player2.addDCCard(board.getDCCard()); }
+		}
 
 	}
 
-    ////////////////////////////////////////////
-	// isValidMove tests a Player's cards against the board for:
-    // 1) The correct color of TrainCarCards for a route
-    // 2) The correct amount of TrainCarCards for a route
+    /*
+    	isValidMove tests a Player's cards against the board for:
+  	 	1) The correct color of TrainCarCards for a route
+    	2) The correct amount of TrainCarCards for a route
+     */
 	public boolean isValidMove(Player player, GameBoard routes, String city1, String city2) {
 
 		int num_of_cards = 0;
@@ -39,7 +99,7 @@ public class GameLogic {
 				num_of_cards++;
 		}
 
-		System.out.println("You have " + num_of_cards + " " + route.getRouteColor() + " card(s) for the route.");
+		//System.out.println("You have " + num_of_cards + " " + route.getRouteColor() + " card(s) for the route.");
 
 		if(num_of_cards == route.getRouteLength())
 			return true;
