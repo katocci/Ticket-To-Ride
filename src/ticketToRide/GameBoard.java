@@ -4,10 +4,10 @@ import java.util.*;
 
 public class GameBoard {
 	
-	private LinkedList<Card> tcHand;
+	//private LinkedList<Card> tcHand;
 	private Deck tcDeck;
 	private Deck dcDeck;
-	private LinkedList<Player> players;
+	//private LinkedList<Player> players;
 
     //private Deck tcDeck;
     //private Deck dcDeck;
@@ -62,4 +62,14 @@ public class GameBoard {
         return null;
     }
 
+    /*
+        getTCCard and getDCCard are being used in GameLogic
+     */
+    public Card getTCCard() {
+        return tcDeck.draw();
+    }
+
+    public Card getDCCard() {
+        return dcDeck.draw();
+    }
 }
