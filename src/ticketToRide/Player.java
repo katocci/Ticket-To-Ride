@@ -27,14 +27,26 @@ public class Player {
         return tcHand;
     }
 
-    public void add(String color) {
-        tcHand.add(new TrainCarCard(color));
+    /*
+        addTCCard && addDCCard are used in GameBoard & GameLogic
+     */
+    public void addTCCard(Card card) {
+        tcHand.add((TrainCarCard)card);
     }
-  
 
-    // Setters and getters here
-	
-	// Thoughts on any testable methods? I've got nothing currently
-	// will probably have to play around with functionality of the "hands" of cards. 
+    public void addDCCard(Card card) {
+        dcHand.add((DestCard) card);
+    }
 
+	public int getScore() {
+		return score;
+	}
+
+	public String getColor() {
+	    return color;
+    }
+
+    public int getCarCount() {
+	    return carCount;
+    }
 }
