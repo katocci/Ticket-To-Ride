@@ -103,18 +103,16 @@ public class GameLogic {
 
 		//System.out.println("You have " + num_of_cards + " " + route.getRouteColor() + " card(s) for the route.");
 
-		if(num_of_cards == route.getRouteLength())
+		if ( num_of_cards == route.getRouteLength() ) {
 			return true;
+		}
 
 		return false;
     }
 
     public Player getCurrentPlayer(Player currentPlayer, Player p1, Player p2) {
 	    //Returns the next player that will take a turn
-	    if ( currentPlayer == null ) {
-	        currentPlayer = p1;
-        }
-	    else if (currentPlayer == p1) {
+	    if (currentPlayer == p1) {
 	        currentPlayer = p2;
         } else {
 	        currentPlayer = p1;
