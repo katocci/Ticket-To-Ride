@@ -49,4 +49,9 @@ public class Player {
     public int getCarCount() {
 	    return carCount;
     }
+
+    @Override
+	public String toString(){
+    	return "Player color: " + this.color;
+	}
 }

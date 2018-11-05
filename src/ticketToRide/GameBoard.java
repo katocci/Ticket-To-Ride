@@ -22,23 +22,35 @@ public class GameBoard {
          */
         destinations = new HashMap<>();
 
-        destinations.put(new ArrayList<>(Arrays.asList("LA", "SF")), new Route("RED", 3));
-        destinations.put(new ArrayList<>(Arrays.asList("NY", "SF")), new Route("BLUE", 5));
+//        destinations.put(new ArrayList<>(Arrays.asList("LA", "SF")), new Route("RED", 3));
+//        destinations.put(new ArrayList<>(Arrays.asList("NY", "SF")), new Route("BLUE", 5));
+//        destinations.put(new ArrayList<>(Arrays.asList("LA", "SD")), new Route("BLACK", 2));
+//        destinations.put(new ArrayList<>(Arrays.asList("NY", "DC")), new Route("GREEN", 3));
+//        destinations.put(new ArrayList<>(Arrays.asList("SF", "LV")), new Route("YELLOW", 4));
+//        destinations.put(new ArrayList<>(Arrays.asList("LA", "LV")), new Route("BLANK", 3));
+
+        destinations.put(new ArrayList<>(Arrays.asList("LA", "SF")), new Route("BLUE", 3));
         destinations.put(new ArrayList<>(Arrays.asList("LA", "SD")), new Route("BLACK", 2));
-        destinations.put(new ArrayList<>(Arrays.asList("NY", "DC")), new Route("GREEN", 3));
-        destinations.put(new ArrayList<>(Arrays.asList("SF", "LV")), new Route("YELLOW", 4));
-        destinations.put(new ArrayList<>(Arrays.asList("LA", "LV")), new Route("BLANK", 3));
+        destinations.put(new ArrayList<>(Arrays.asList("SF", "LV")), new Route("BLANK", 3));
+        destinations.put(new ArrayList<>(Arrays.asList("SD", "LV")), new Route("RED", 4));
 
         // Build decks for game
-        tcDeck = new Deck("trainCarSmall.txt", 0);
-        dcDeck = new Deck("destCardSmall.txt", 1);
+        //tcDeck = new Deck("trainCarSmall.txt", 0);
+        //dcDeck = new Deck("destCardSmall.txt", 1);
+
+        // Build decks for game
+//        tcDeck = new Deck("trainCarGUI", 0);
+//        dcDeck = new Deck("destCardGUI", 1);
 
     }
 
+    /*
+        Returns a Route object based on the cities passed through the parameters.
+     */
     public Route getRoute(String city1, String city2) {
         ArrayList<String> cities = getKey(city1, city2);
         Route foundRoute;
-        if (cities.contains(null) || cities.isEmpty()) {
+        if (cities == null || cities.isEmpty()) {
             foundRoute = null;
         } else {
             foundRoute = new Route(destinations.get(cities).getRouteColor(), destinations.get(cities).getRouteLength());
