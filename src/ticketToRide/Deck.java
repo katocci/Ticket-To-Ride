@@ -71,7 +71,7 @@ public class Deck {
 		return discard.pop();
 	}
 	/**
-     * Shuffle calles Collections.shuffle to randomly rearrange the Cards within
+     * Shuffle calls Collections.shuffle to randomly rearrange the Cards within
      * their LinkedList deck
      */
 	public void shuffle() {
@@ -96,8 +96,9 @@ public class Deck {
 	 */
 	public void buildDeck(String fileName, int type) {
 		String s;
+		File file = new File(Objects.requireNonNull(getClass().getClassLoader().getResource(fileName)).getPath());
 
-		try(BufferedReader br = new BufferedReader(new FileReader(fileName))){
+		try(BufferedReader br = new BufferedReader(new FileReader(file))){
 			while((s = br.readLine()) != null) {
 				if(type == 0) {
 					this.add(new TrainCarCard(s));
