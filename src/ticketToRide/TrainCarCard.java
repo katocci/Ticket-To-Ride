@@ -18,10 +18,14 @@ public class TrainCarCard implements Card{
 		this.carType = carTypes[random.nextInt(max - min) + min];
 	}
 
-	public TrainCarCard(String color){
-		this.color = color;
-		this.carType = "null";
-	}
+//	public TrainCarCard(String color){
+//		this.color = color;
+//		this.carType = "null";
+//	}
+
+	public TrainCarCard(String color) {
+	    this.color = color;
+    }
 
 	public String getColor() {
 		return this.color;

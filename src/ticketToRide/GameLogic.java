@@ -1,3 +1,5 @@
+import com.sun.source.util.Plugin;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,8 +14,8 @@ public class GameLogic {
 	public GameLogic() {
 		board = new GameBoard();
 		// For this assignment, we are leaving the max at 2 players
-		player1 = new Player("BLUE");
-		player2 = new Player("RED");
+		player1 = new Player("AQUA");
+		player2 = new Player("");
 	}
 
 	public boolean gameOver() {
@@ -106,6 +108,19 @@ public class GameLogic {
 
 		return false;
     }
+
+    public Player getCurrentPlayer(Player currentPlayer, Player p1, Player p2) {
+	    //Returns the next player that will take a turn
+	    if ( currentPlayer == null ) {
+	        currentPlayer = p1;
+        }
+	    else if (currentPlayer == p1) {
+	        currentPlayer = p2;
+        } else {
+	        currentPlayer = p1;
+        }
+		return  currentPlayer;
+	}
 
 
 }
