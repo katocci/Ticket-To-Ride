@@ -1,4 +1,3 @@
-import java.util.LinkedList;
 import java.util.*;
 
 
@@ -39,8 +38,8 @@ public class GameBoard {
         //dcDeck = new Deck("destCardSmall.txt", 1);
 
         // Build decks for game
-//        tcDeck = new Deck("trainCarGUI", 0);
-//        dcDeck = new Deck("destCardGUI", 1);
+        tcDeck = new Deck("trainCarGUI.txt", 0);
+        dcDeck = new Deck("destCardGUI.txt", 1);
 
     }
 

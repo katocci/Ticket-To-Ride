@@ -120,7 +120,7 @@ public class GameBoardController {
                   SFtoLA1.setFill(currentPlayer.getPlayerColor());
                   SFtoLA2.setFill(currentPlayer.getPlayerColor());
                   SFtoLA3.setFill(currentPlayer.getPlayerColor());
-              } else if ( (city1.equals("SF") && city2.equals("LA")) || ((city1.equals("LA") && city2.equals("SF"))) ) {
+              } else if ( (city1.equals("SF") && city2.equals("LV")) || ((city1.equals("LV") && city2.equals("SF"))) ) {
                   SFtoLV1.setFill(currentPlayer.getPlayerColor());
                   SFtoLV2.setFill(currentPlayer.getPlayerColor());
                   SFtoLV3.setFill(currentPlayer.getPlayerColor());
@@ -152,6 +152,9 @@ public class GameBoardController {
                SFtoLV2.setFill(currentPlayer.getPlayerColor());
                SFtoLV3.setFill(currentPlayer.getPlayerColor());
            } else if ( (city1.equals("SD") && city2.equals("LA")) || ((city1.equals("LA") && city2.equals("SD"))) ) {
+               LAtoSD1.setFill(currentPlayer.getPlayerColor());
+               LAtoSD2.setFill(currentPlayer.getPlayerColor());
+           } else if ( (city1.equals("SD") && city2.equals("LV")) || ((city1.equals("LV") && city2.equals("SD"))) ) {
                LAtoSD1.setFill(currentPlayer.getPlayerColor());
                LAtoSD2.setFill(currentPlayer.getPlayerColor());
            }
