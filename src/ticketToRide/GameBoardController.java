@@ -9,8 +9,8 @@ import javafx.scene.shape.Rectangle;
  */
 public class GameBoardController {
 
-    private Player player1 = new Player("AQUA");
-    private Player player2 = new Player("PINK");
+    private Player player1 = new Player(Color.AQUA);
+    private Player player2 = new Player(Color.PINK);
     private Player currentPlayer = null;
     private GameBoard board = new GameBoard();
     private GameLogic gameLogic = new GameLogic();
@@ -117,12 +117,23 @@ public class GameBoardController {
        if (pressed.equals(route)) {
           if ( gameLogic.isValidMove(gameLogic.getCurrentPlayer(currentPlayer, player1, player2), board, city1, city2) ) {
               if ( (city1.equals("SF") && city2.equals("LA")) || ((city1.equals("LA") && city2.equals("SF"))) ) {
-                 SFtoLA1.setFill((Color)currentPlayer.getColor());
-                 SFtoLA2.setFill(Color.AQUA);
-                 SFtoLA3.setFill(Color.AQUA);
-              } else {
-                SFtoLV1.setFill();
+                  SFtoLA1.setFill(currentPlayer.getPlayerColor());
+                  SFtoLA2.setFill(currentPlayer.getPlayerColor());
+                  SFtoLA3.setFill(currentPlayer.getPlayerColor());
+              } else if ( (city1.equals("SF") && city2.equals("LA")) || ((city1.equals("LA") && city2.equals("SF"))) ) {
+                  SFtoLV1.setFill(currentPlayer.getPlayerColor());
+                  SFtoLV2.setFill(currentPlayer.getPlayerColor());
+                  SFtoLV3.setFill(currentPlayer.getPlayerColor());
+              } else if ( (city1.equals("SD") && city2.equals("LA")) || ((city1.equals("LA") && city2.equals("SD"))) ) {
+                  LAtoSD1.setFill(currentPlayer.getPlayerColor());
+                  LAtoSD2.setFill(currentPlayer.getPlayerColor());
+              } else if ( (city1.equals("SD") && city2.equals("LV")) || ((city1.equals("LV") && city2.equals("SD"))) ) {
+                  SDtoLV1.setFill(currentPlayer.getPlayerColor());
+                  SDtoLV2.setFill(currentPlayer.getPlayerColor());
+                  SDtoLV3.setFill(currentPlayer.getPlayerColor());
+                  SDtoLV4.setFill(currentPlayer.getPlayerColor());
               }
+
               city1 = "";
               city2 = "";
               SF.setStyle(null);
@@ -130,6 +141,26 @@ public class GameBoardController {
               SD.setStyle(null);
               LV.setStyle(null);
           }
+
+          currentPlayer = gameLogic.getCurrentPlayer(currentPlayer, player1, player2);
+           if ( (city1.equals("SF") && city2.equals("LA")) || ((city1.equals("LA") && city2.equals("SF"))) ) {
+               SFtoLA1.setFill(currentPlayer.getPlayerColor());
+               SFtoLA2.setFill(currentPlayer.getPlayerColor());
+               SFtoLA3.setFill(currentPlayer.getPlayerColor());
+           } else if ( (city1.equals("SF") && city2.equals("LV")) || ((city1.equals("LV") && city2.equals("SF"))) ) {
+               SFtoLV1.setFill(currentPlayer.getPlayerColor());
+               SFtoLV2.setFill(currentPlayer.getPlayerColor());
+               SFtoLV3.setFill(currentPlayer.getPlayerColor());
+           } else if ( (city1.equals("SD") && city2.equals("LA")) || ((city1.equals("LA") && city2.equals("SD"))) ) {
+               LAtoSD1.setFill(currentPlayer.getPlayerColor());
+               LAtoSD2.setFill(currentPlayer.getPlayerColor());
+           }
+           city1 = "";
+           city2 = "";
+           SF.setStyle(null);
+           LA.setStyle(null);
+           SD.setStyle(null);
+           LV.setStyle(null);
        }
     }
 }
