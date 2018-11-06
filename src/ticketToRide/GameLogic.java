@@ -14,7 +14,7 @@ public class GameLogic {
 	public GameLogic() {
 		board = new GameBoard();
 		// For this assignment, we are leaving the max at 2 players
-		player1 = new Player("AQUA");
+		player1 = new Player("");
 		player2 = new Player("");
 	}
 
@@ -95,6 +95,7 @@ public class GameLogic {
 		Route route = routes.getRoute(city1, city2);
 
 		List<TrainCarCard> player_hand = player.getTcHand();
+		System.out.println(player_hand);
 
 		for(int i = 0; i < player_hand.size(); i++) {
 			if(player_hand.get(i).getColor().equals(route.getRouteColor()))
