@@ -2,6 +2,7 @@ import com.sun.source.util.Plugin;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.Iterator;
 
 // Vast majority of functionality is going to go here. All rules for turns and all of game setup
 public class GameLogic {
@@ -58,6 +59,7 @@ public class GameLogic {
 				System.out.println("Which route would you like to take?");
 
 				// add something here that would allow player to input route they want
+				// also, put isValidMovein here
 			}
 			else if(input1 == 3) { player1.addDCCard(board.getDCCard()); }
 
@@ -77,6 +79,7 @@ public class GameLogic {
 				System.out.println("Which route would you like to take?");
 
 				// add something here that would allow player to input route they want
+				// also, put isValidMovein here
 
 			}
 			else if(input2 == 3) { player2.addDCCard(board.getDCCard()); }
@@ -88,6 +91,7 @@ public class GameLogic {
     	isValidMove tests a Player's cards against the board for:
   	 	1) The correct color of TrainCarCards for a route
     	2) The correct amount of TrainCarCards for a route
+    	This will be used in playGame()
      */
 	public boolean isValidMove(Player player, GameBoard routes, String city1, String city2) {
 
@@ -102,14 +106,26 @@ public class GameLogic {
 				num_of_cards++;
 		}
 
-		//System.out.println("You have " + num_of_cards + " " + route.getRouteColor() + " card(s) for the route.");
-
 		if ( num_of_cards == route.getRouteLength() ) {
 			return true;
 		}
 
 		return false;
     }
+
+	public void discPlayerHand(Player player, GameBoard routes, String city1, String city2) {
+
+		Route route = routes.getRoute(city1, city2);
+		List<TrainCarCard> player_hand = player.getTcHand();
+
+		for(Iterator<TrainCarCard> i = player_hand.iterator(); i.hasNext(); ) {
+
+			TrainCarCard a = i.next();
+
+			if(a.getColor().equals(route.getRouteColor()))
+				i.remove();
+		}
+	}
 
     public Player getCurrentPlayer(Player currentPlayer, Player p1, Player p2) {
 	    //Returns the next player that will take a turn
