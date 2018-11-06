@@ -216,6 +216,13 @@ public class GameBoardController {
 
                 //After claiming a route, we switch players now
                 currentPlayer = gameLogic.getCurrentPlayer(currentPlayer, player1, player2);
+                //Showing the hand of the current player after the previous player had drawn a card
+                playerHand.clear();
+                builder.setLength(0);
+                for(int i = 0; i < currentPlayer.getTcHand().size(); i++) {
+                    builder.append(currentPlayer.getTcHand().get(i).getColor() + " ");
+                }
+                playerHand.setText(builder.toString());
             }
         }
 
@@ -228,8 +235,8 @@ public class GameBoardController {
             //Showing the hand of the current player after the previous player had drawn a card
             playerHand.clear();
             builder.setLength(0);
-            for(int i = 0; i < player1.getTcHand().size(); i++) {
-                builder.append(player1.getTcHand().get(i).getColor() + " ");
+            for(int i = 0; i < currentPlayer.getTcHand().size(); i++) {
+                builder.append(currentPlayer.getTcHand().get(i).getColor() + " ");
             }
             playerHand.setText(builder.toString());
         }
@@ -243,8 +250,8 @@ public class GameBoardController {
             //Showing the hand of the current player after the previous player had drawn a card
             playerHand.clear();
             builder.setLength(0);
-            for(int i = 0; i < player1.getTcHand().size(); i++) {
-                builder.append(player1.getTcHand().get(i).getColor() + " ");
+            for(int i = 0; i < currentPlayer.getTcHand().size(); i++) {
+                builder.append(currentPlayer.getTcHand().get(i).getColor() + " ");
             }
             playerHand.setText(builder.toString());
         }
