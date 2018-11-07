@@ -14,6 +14,7 @@ public class TickeToRide extends Application {
         Scene scene = new Scene(root);
 
         primaryStage.setTitle("Ticket-To-Ride");
+        primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
