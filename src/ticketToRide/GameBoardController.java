@@ -176,6 +176,8 @@ public class GameBoardController {
          */
         if (pressed.equals(route)) {
             if (gameLogic.isValidMove(currentPlayer, board, city1, city2)) {
+                gameLogic.discPlayerHand(currentPlayer, board, city1, city2);
+
                 if ((city1.equals("SF") && city2.equals("LA")) || ((city1.equals("LA") && city2.equals("SF")))) {
                     if (!routeClaimed) {
                         routeClaimed = true;
