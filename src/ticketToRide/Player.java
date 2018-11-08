@@ -47,6 +47,17 @@ public class Player {
         this.tcHand = new ArrayList<TrainCarCard>();
     }
     /**
+     * Constructs a player given a Color object, and String color
+     * @param playerColor - Color for player
+     * @param color - Color for player for UI
+     */
+    public Player(String color, Color playerColor) {
+        this.playerColor = playerColor;
+        this.color = color;
+        this.score = 0;
+        this.tcHand = new ArrayList<TrainCarCard>();
+    }
+    /**
      * Returns hand of train car cards
      * @returns list of train car cards
      */
